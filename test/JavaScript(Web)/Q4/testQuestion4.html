@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 button</title>
+    <style>
+        body {
+            width:1920px;
+            height:250px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btl {
+            width : 100px;
+            height : 100px;
+            font-size: 55px;
+            border-radius: 99px;
+            background-color: aqua;
+            border:none;
+            color:white;
+            text-shadow: 1px 1px 5px black;
+        }
+
+        .btl:hover {
+            box-shadow: 5px 5px 5px black;
+            color:black;
+        }
+
+        /* focus에 box-shadow를 넣으면 이상하게 클릭하고 그림자가 생겼다가 사라지지 않았다.
+        mouseup과 down을 이용해야 괜찮을 것 같다.
+        */
+        .btl:focus {
+             animation : wiggle ease-in 0.1s;
+             /* box-shadow: 0px 0px 0px white; 이것도 마찬가지로 적용되지 않음 */
+        }
+
+        @keyframes wiggle {
+            from {
+                transform: rotate(-5deg);
+            }
+            to {
+                transform: rotate(5deg);
+            }
+        }
+
+        .btl:focus {
+            box-shadow: 5px 5px black;
+        }
+
+        mark {
+            background-color: black;
+            border-radius: 99px;
+            color :white;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="position:absolute; top:0px;" ><mark>뒤로가기(←) 버튼</mark> & <mark>앞으로 가기(→) 버튼</mark></h1>
+    <button class="btl" id="backBtl"><span style="position:absolute; transform: translate(-27px, -37px); ">←</span></button>
+    <div style="width:200px"></div>
+    <button class="btl" id="frontBtl"><span style="position:absolute; transform: translate(-27px, -37px);">→</span></button>
+
+    <script>
+        document.getElementById('backBtl').onclick = () => history.back();
+        const $front = document.getElementById('frontBtl');
+        $front.onclick = () => history.forward();
+    </script>
+</body>
+</html>
