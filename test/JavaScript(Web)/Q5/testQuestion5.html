@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="timerBtl">타이머</button>
+    <script>
+        let count = 1;
+        const $btl1 = document.querySelector('.timerBtl');
+        $btl1.onclick = setInterval(() => {
+            alert('5초가 지났습니다.');
+            if(count++ === 10) clearInterval($btl1.alert);
+        }, 5000)
+    </script>
+</body>
+</html>
