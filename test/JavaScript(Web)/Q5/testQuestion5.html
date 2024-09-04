@@ -10,12 +10,19 @@
    버튼을 누르면 타이머가 가고 5초마다 5초가 지났습니다.와 함께 15초 후에 끝이라는 알림과 함께 알림 종료가 되고 앞으로 가는 버튼 생성해보기
     <button class="timerBtl">타이머</button>
     <script>
-        let count = 1;
+        let count = 0;
         const $btl1 = document.querySelector('.timerBtl');
-        $btl1.onclick = setInterval(() => {
-            alert('5초가 지났습니다.');
-            if(count++ === 10) clearInterval($btl1.alert);
-        }, 5000)
+        $btl1.onclick = function(){
+        let stop = setInterval(() => {
+            count++;
+            // if(count++ === 10) clearInterval($btl1);
+            if(count%5 == 0){alert('5초가 지났습니다.');}
+            else if(count == 15){
+                // location.reload();
+                alert ('끝');
+                clearInterval(stop);
+            }
+        }, 1000)};
     </script>
 </body>
 </html>
