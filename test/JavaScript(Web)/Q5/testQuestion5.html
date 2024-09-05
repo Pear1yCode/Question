@@ -13,15 +13,14 @@
         let count = 0;
         const $btl1 = document.querySelector('.timerBtl');
         $btl1.onclick = function(){
-        let stop = setInterval(() => {
+        let stop = setInterval(() => { // 일단 setInterval에 변수를 주고 clearInterval의 괄호 안에 그 변수를 넣어 연결해주었다.
             count++;
-            // if(count++ === 10) clearInterval($btl1);
-            if(count == 15){
-                clearInterval(stop);
+            if(count == 15){        // 오히려 count == 15가 되면 clearInterval 되는 것을 if 앞으로 넣어주고
+                clearInterval(stop); // let stop에 있던 변수를 넣어 서로 연결을 하여 어떤게 멈추게 할 것인지 연결
                 alert ('끝');
                 history.forward();
             }
-            else if(count%5 == 0){
+            else if(count%5 == 0){ // 5초마다 알람이 뜨는게 else if 위치로 이동하는게 정답이었다.
                 alert('5초가 지났습니다.');
             }
         }, 1000)};
