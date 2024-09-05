@@ -16,11 +16,13 @@
         let stop = setInterval(() => {
             count++;
             // if(count++ === 10) clearInterval($btl1);
-            if(count%5 == 0){alert('5초가 지났습니다.');}
-            else if(count == 15){
-                // location.reload();
-                alert ('끝');
+            if(count == 15){
                 clearInterval(stop);
+                alert ('끝');
+                history.forward();
+            }
+            else if(count%5 == 0){
+                alert('5초가 지났습니다.');
             }
         }, 1000)};
     </script>
